@@ -1,0 +1,42 @@
+﻿@model IEnumerable<iBlog.Models.BlogMenu>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<link rel="stylesheet" type="text/css" href="~/Content/Site.css">
+<div class="jumbotron">
+    <h1>iBlog</h1>
+    <p class="lead">Tu asistente de blogs confiable.</p>
+</div>
+
+<table>
+    @foreach (var item in Model)
+    {
+        if(item.privatePost == false) { 
+        <tr>
+            <h2>@Html.DisplayFor(modelItem => item.title)</h2>
+        </tr>
+        <br>
+        <br>
+        <tr>
+                @Html.Raw(item.content)
+       </tr>
+        }
+        else if(Request.IsAuthenticated)
+        {
+            <tr>
+                <h2>@Html.DisplayFor(modelItem => item.title)</h2>
+            </tr>
+            <br>
+            <br>
+            <tr>
+                @Html.Raw(item.content)
+            </tr>
+        }
+        else
+        {
+
+        }
+    }
+
+</table>

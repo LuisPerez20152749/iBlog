@@ -1,0 +1,41 @@
+﻿@model iBlog.Models.BlogMenu
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.content)
+        </dt>
+
+        <dd>
+            @Html.Raw(@Html.DisplayFor(model => model.content))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.privatePost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.privatePost)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Volver Atras", "Index")
+</p>

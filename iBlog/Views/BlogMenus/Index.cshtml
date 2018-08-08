@@ -1,0 +1,48 @@
+﻿@model IEnumerable<iBlog.Models.BlogMenu>
+
+@{
+    ViewBag.Title = "Administracion de Publicaciones";
+}
+
+<h2>Administracion de Publicaciones</h2>
+
+<p>
+    @Html.ActionLink("Crear Publicacion Nueva", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Titulo
+        </th>
+        <th>
+            Contenido del Blog
+        </th>
+        <th>
+            Esta privado el Post?
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.Raw(item.content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.privatePost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.privatePost)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.id }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

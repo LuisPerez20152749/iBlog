@@ -1,0 +1,18 @@
+﻿@model IEnumerable<iBlog.Models.BlogMenu>
+
+<table>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.content)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.privatePost)
+        </td>
+    </tr>
+}
+
+</table>
